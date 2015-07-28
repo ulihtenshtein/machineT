@@ -1,0 +1,25 @@
+@startuml
+class Tape {
+	+applyCommand()
+	+getCurrentSymbol():Symbol
+	-tape:List
+}
+class Symbol {
+	+name:string
+}
+class Cell {
+	+next:Cell
+	+prev:Cell
+	+symbol:Symbol
+}
+class List {
+	-addEnd()
+	-addFront()
+	+seekTo(nums)
+	+seekBack(nums)
+	~getCurrentCell():Cell
+}
+class List *--"many" class Cell
+class Symbol "0..1"-* class Cell
+class Tape *-"1" class List
+@enduml
