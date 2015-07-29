@@ -2,6 +2,7 @@
 class Tape {
 	+applyCommand()
 	+getCurrentSymbol():Symbol
+	+setData(data[]:Symbol)
 	-tape:List
 }
 class Symbol {
@@ -17,7 +18,8 @@ class List {
 	-addFront()
 	+seekTo(nums)
 	+seekBack(nums)
-	~getCurrentCell():Cell
+	~getCurrentSymbol():Symbol
+	~setCurrentSymbol(s:Symbol)
 }
 class List *--"many" class Cell
 class Symbol "0..1"-* class Cell

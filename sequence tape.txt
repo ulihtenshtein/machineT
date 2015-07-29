@@ -1,0 +1,18 @@
+@startuml
+title Работа Tape
+participant Programme
+participant Tape
+participant List
+Machine -> Tape:setData
+Tape -> List:new
+List -> List:addEnd
+loop цикл работы программы
+Programme -> Tape:getCurrentSymbol
+Tape -> List:getCurrentSymbol
+Programme -> Tape:applyCommand
+Tape -> List:setCurrentSymbol
+note over List:если символ изменен
+Tape -> List:seek
+note over List:если есть сдвиг
+end
+@endumla
